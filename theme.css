@@ -58,22 +58,37 @@ footer{
 }
 
 #previous_btn{
+    border: 3px solid white;
     float: left;
+}
+
+#previous_btn:focus{
+    outline: none;
+}
+
+#previous_btn:hover{
+    border: 0;
 }
 
 #next_btn{
     float: right;
+    border: 3px solid white;
 }
+
+#next_btn{
+    outline: none;
+}
+
+#next_btn:hover{
+    border: none;
+}
+
 
 #month_image{
     min-width: 200px;
     width: 40%;
     left: 5%;
 }
-
-/*#month_image:hover{
-
-}*/
 
 img.hidden{
     display: none;
@@ -95,16 +110,32 @@ img.hidden{
     padding-bottom: 5%;
 }
 
-#produce_display_1 img:hover{
+#produce_display_1 img{
     border: 3px solid white;
+}
+
+#produce_display_2 img{
+    border: 3px solid white;
+}
+
+#produce_display_3 img{
+    border: 3px solid white;
+}
+
+#produce_display_1 img:hover{
+    border: 0px;
 }
 
 #produce_display_2 img:hover{
-    border: 3px solid white;
+    border: 0px;
 }
 
 #produce_display_3 img:hover{
-    border: 3px solid white;
+    border: 0px;
+}
+
+#month_image{
+    transition: opacity 0.2s linear;
 }
 
 @media screen and (max-width: 850px){
@@ -130,4 +161,8 @@ img.hidden{
     width: 100%;
     bottom: 5%;
     text-align: center;
+}
+
+.modal-dialog {
+   margin-top: 15%;
 }

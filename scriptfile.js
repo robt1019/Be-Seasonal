@@ -189,7 +189,7 @@ function make_visible(element){
 
 function make_invisible(element){
 	addClass(element, "hidden");
-	current_month.visible = false;
+	current_month.visible = false;		
 }
 
 
@@ -226,8 +226,11 @@ function update_previous_month(){
 		}
 		month_address--;
 		display_produce(month_address);
+		fadeOut(current_month);
 		set_current_month();
 		current_month.src = month[month_address].image_address;
+		setTimeout(function(){
+			fadeIn(current_month);}, 300);
 	}
 }
 
@@ -239,8 +242,11 @@ function update_next_month(){
 		}
 		month_address++;
 		display_produce(month_address);
+		fadeOut(current_month);
 		set_current_month();
 		current_month.src = month[month_address].image_address;
+		setTimeout(function(){
+			fadeIn(current_month);}, 300);
 	}
 }
 
@@ -256,6 +262,16 @@ function display_produce_description(index){
         $('#produce_modal').modal('show');
 	}
 }
+
+function fadeOut(element) {
+        var opacity = 0.01;
+        element.style.opacity = opacity;
+    }
+
+function fadeIn(element) {
+        var opacity = 1;
+        element.style.opacity = opacity;
+    }
 
 
 ///////////////////////////////set up arrays/variables//////////////////////////
@@ -289,10 +305,10 @@ set_current_month();
 ////////////////////////////////////////////////////////////////////////////////
 
 //Previous button click
-document.getElementById("previous_btn").addEventListener("click", update_previous_month);
+document.getElementById("previous_btn").addEventListener("click", update_previous_month, false);
 
 //Next button click
-document.getElementById("next_btn").addEventListener("click", update_next_month);
+document.getElementById("next_btn").addEventListener("click", update_next_month, false);
 
 //Produce images click
 document.getElementById("produce_display_1").addEventListener("click", display_produce_description, false);
